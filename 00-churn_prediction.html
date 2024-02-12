@@ -25,9 +25,9 @@
         padding: 20px;
         background-image: linear-gradient(to right, #c7cbd0, #d5d8df);
         border-radius: 10px;
-        width: auto; /* Adjusted for responsive width */
-        max-width: 80%; /* Maximum width of the container */
-        margin: 2vh auto; /* Vertical margin based on viewport height */
+        width: auto;
+        max-width: 80%;
+        margin: 2vh auto; 
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       }
       #animation-container {
@@ -55,22 +55,22 @@
         text-align: center;
         line-height: 30px;
         transition: background-color 2s;
-        flex-basis: 18%; /* Flex basis for customer boxes */
+        flex-basis: 18%;
         min-width: 48px;
         min-height: 48px;
-        max-width: 19%; /* Maximum width for customer boxes */
+        max-width: 19%; 
       }
 
       .customer.low-risk {
-        background-color: #70b770; /* Light green for low risk */
+        background-color: #70b770;
       }
 
       .customer.medium-risk {
-        background-color: #dabc93; /* Orange for medium risk */
+        background-color: #dabc93;
       }
 
       .customer.high-risk {
-        background-color: #d3776f; /* Lighter red for high risk */
+        background-color: #d3776f; 
       }
 
       #message,
@@ -92,11 +92,11 @@
         margin: 10px 0;
         min-width: 48px;
         min-height: 48px;
-        max-width: 200px; /* Maximum width for the button */
+        max-width: 200px;
       }
       #start-button:hover {
         background-image: linear-gradient(to bottom, #054a93, #020f1d);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth on hover */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
       }
       #start-button:active {
         transform: scale(0.98);
@@ -104,34 +104,34 @@
       @media (max-width: 600px) {
         .customer {
           flex-basis: calc(50% - 8px);
-          max-width: 45%; /* Maximum width for mobile */
+          max-width: 45%;
           padding: 16px;
         }
         #start-button {
-          width: 80%; /* Relative width for the button on mobile */
+          width: 80%;
         }
       }
-      /* Media query for smaller devices */
+      
       @media (max-width: 768px) {
         body,
         html {
           font-size: 18px;
         }
         .customer {
-          flex: 0 0 48%; /* Two customers per row on smaller screens */
+          flex: 0 0 48%; 
           max-width: 48%;
         }
       }
 
       @media (max-width: 480px) {
         .customer {
-          flex: 0 0 98%; /* Full width for very small screens */
+          flex: 0 0 98%; 
           max-width: 98%;
-          margin: 1% 0; /* Adjust margin for small screens */
+          margin: 1% 0; 
         }
 
         #start-button {
-          width: 100%; /* Full width button on small screens */
+          width: 100%; 
         }
       }
 
@@ -141,18 +141,18 @@
           box-shadow: 0 0 0px 0px transparent;
         }
         20% {
-          box-shadow: 0 0 0px 7px rgb(27, 1, 44); /* Black for scanning effect */
+          box-shadow: 0 0 0px 7px rgb(27, 1, 44); 
         }
       }
 
       .scanning {
-        animation: scanningEffect 2s ease-out; /* Adjusted for immediate follow-up */
-        position: relative; /* Ensure box-shadow is properly applied */
+        animation: scanningEffect 2s ease-out; 
+        position: relative; 
       }
 
       #button-container button {
-        padding: 15px 25px; /* Ensure both buttons have the same padding */
-        font-size: 1em; /* Ensure both buttons use the same font size */
+        padding: 15px 25px; 
+        font-size: 1em; 
         border-radius: 5px;
         border: 1px solid transparent;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -160,7 +160,7 @@
         cursor: pointer;
         min-width: 48px;
         min-height: 48px;
-        max-width: 200px; /* Optional: Adjust if needed */
+        max-width: 200px; 
       }
 
       #start-button.disabled,
@@ -175,15 +175,15 @@
         color: white;
         border: 1px solid transparent;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-        padding: 7.5px 12.5px; /* Adjusted for half size */
+        padding: 7.5px 12.5px; 
         font-size: 0.8em;
         border-radius: 5px;
-        cursor: not-allowed; /* Initially not clickable */
-        opacity: 0.5; /* Visually indicate it's disabled */
+        cursor: not-allowed;
+        opacity: 0.5;
         transition: background-color 0.3s, transform 0.3s, opacity 0.3s;
       }
 
-    /* Ensure the enabled class is specifically for the reset button and has higher specificity */
+    
 #reset-button:not(:disabled) {
   background-image: linear-gradient(to bottom, #ec1d2f, #a90310);
   cursor: pointer;
@@ -217,7 +217,7 @@
 
       function generateCustomers() {
         const container = document.getElementById("animation-container");
-        container.innerHTML = ""; // Clear existing customers before generating new
+        container.innerHTML = ""; 
         for (let i = 0; i < 20; i++) {
           const customer = document.createElement("div");
           customer.className = "customer";
@@ -229,10 +229,10 @@
       function evaluateCustomers() {
         const startButton = document.getElementById("start-button");
         const resetButton = document.getElementById("reset-button");
-        startButton.disabled = true; // Disable start button immediately to prevent re-clicks
-        resetButton.disabled = true; // Disable reset button during evaluation
-        startButton.classList.add("disabled"); // Add disabled class to visually indicate
-        resetButton.classList.add("disabled"); // Add disabled class to visually indicate
+        startButton.disabled = true; 
+        resetButton.disabled = true; 
+        startButton.classList.add("disabled"); 
+        resetButton.classList.add("disabled"); 
 
         const customers = document.querySelectorAll(".customer");
         const messageDiv = document.getElementById("message");
@@ -248,7 +248,7 @@
           } else {
             clearInterval(messageInterval);
             messageDiv.textContent = "Risk Assessment Complete.";
-            document.getElementById("reset-button").disabled = false; // Enable reset button after evaluation
+            document.getElementById("reset-button").disabled = false; 
             document
               .getElementById("reset-button")
               .classList.remove("disabled");
@@ -291,10 +291,10 @@
 
         const startButton = document.getElementById("start-button");
         const resetButton = document.getElementById("reset-button");
-        startButton.disabled = false; // Re-enable start button for new evaluation
-        resetButton.disabled = true; // Keep reset button disabled
-        startButton.classList.remove("disabled"); // Remove disabled class
-        resetButton.classList.add("disabled"); // Ensure reset button looks enabled (will remain disabled)
+        startButton.disabled = false; 
+        resetButton.disabled = true; 
+        startButton.classList.remove("disabled");
+        resetButton.classList.add("disabled"); 
       }
 
       document
@@ -304,7 +304,7 @@
         .getElementById("reset-button")
         .addEventListener("click", resetAnimation);
 
-      generateCustomers(); // Initial generation of customers
+      generateCustomers(); 
     </script>
   </body>
 </html>
